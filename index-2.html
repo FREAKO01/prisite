@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ms. Dhamija 👑</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --pink: #ff4d8d;
+      --coral: #ff7f5c;
+      --peach: #ffb347;
+      --yellow: #ffe066;
+      --mint: #6ee7b7;
+      --lavender: #c4b5fd;
+      --sky: #7dd3fc;
+      --cream: #fff8f2;
+      --dark: #2d1a1a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' style='font-size:24px'><text y='24'>💅</text></svg>"), auto;
+    }
+
+    /* blobs */
+    .blob-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.28;
+      animation: blobFloat 9s ease-in-out infinite alternate;
+    }
+    .blob1 { width: 500px; height: 500px; background: var(--pink);     top: -120px; left: -120px; animation-delay: 0s; }
+    .blob2 { width: 420px; height: 420px; background: var(--peach);    top: 35%; right: -100px;  animation-delay: 2s; }
+    .blob3 { width: 360px; height: 360px; background: var(--lavender); bottom: -60px; left: 15%; animation-delay: 4s; }
+    @keyframes blobFloat {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(25px, 35px) scale(1.06); }
+    }
+
+    /* hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 60px 24px 50px;
+    }
+    .crown {
+      font-size: 4.5rem;
+      display: block; margin-bottom: 4px;
+      animation: crownBounce 2s ease-in-out infinite;
+    }
+    @keyframes crownBounce {
+      0%,100% { transform: translateY(0) rotate(-4deg); }
+      50%      { transform: translateY(-12px) rotate(4deg); }
+    }
+    .hero-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(3.2rem, 10vw, 7rem);
+      background: linear-gradient(135deg, var(--pink), var(--coral), var(--peach));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1; letter-spacing: -1px;
+    }
+    .hero-sub {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      color: var(--coral); margin-top: 10px;
+      animation: fadeUp 0.9s ease 0.4s both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .badges {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center; margin-top: 26px;
+      animation: fadeUp 0.9s ease 0.7s both;
+    }
+    .badge {
+      padding: 7px 18px; border-radius: 999px;
+      font-weight: 800; font-size: 0.9rem;
+      transition: transform 0.18s;
+    }
+    .badge:hover { transform: scale(1.09) rotate(-2deg); }
+    .b1 { background: var(--pink);     color: #fff; }
+    .b2 { background: var(--yellow);   color: var(--dark); }
+    .b3 { background: var(--mint);     color: var(--dark); }
+    .b4 { background: var(--lavender); color: var(--dark); }
+    .b5 { background: var(--sky);      color: var(--dark); }
+
+    .scroll-hint { margin-top: 42px; font-size: 1.6rem; color: var(--pink); animation: nudge 1.3s infinite; }
+    @keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+
+    /* sections */
+    section { max-width: 880px; margin: 0 auto; padding: 60px 24px; }
+
+    .sec-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.7rem, 5vw, 2.5rem);
+      text-align: center; margin-bottom: 36px;
+      background: linear-gradient(135deg, var(--pink), var(--coral));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .sec-title::after {
+      content: ''; display: block;
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--peach));
+      border-radius: 99px; margin: 10px auto 0;
+    }
+
+    /* food */
+    .food-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    @media (max-width: 580px) { .food-grid { grid-template-columns: 1fr; } }
+
+    .food-card {
+      background: #fff; border-radius: 24px;
+      padding: 32px 24px; text-align: center;
+      box-shadow: 0 6px 28px rgba(255,77,141,0.1);
+      transition: transform 0.22s, box-shadow 0.22s;
+      border: 2px solid transparent;
+    }
+    .food-card:hover {
+      transform: translateY(-7px) rotate(1deg);
+      box-shadow: 0 16px 44px rgba(255,77,141,0.18);
+      border-color: var(--pink);
+    }
+    .food-card:nth-child(2):hover { transform: translateY(-7px) rotate(-1deg); }
+    .food-emoji { font-size: 4rem; display: block; margin-bottom: 12px; }
+    .food-name  { font-family: 'Pacifico', cursive; font-size: 1.5rem; color: var(--coral); margin-bottom: 10px; }
+    .food-desc  { font-size: 0.93rem; color: #7a5060; line-height: 1.65; font-weight: 600; }
+
+    /* chooj */
+    .chooj-box {
+      background: #fff; border-radius: 28px;
+      padding: 44px 36px; text-align: center;
+      box-shadow: 0 6px 28px rgba(255,77,141,0.08);
+    }
+    .chooj-box p { font-size: 1.05rem; font-weight: 700; color: #9a5870; line-height: 1.75; max-width: 500px; margin: 0 auto 20px; }
+    .chooj-box .quote { font-size: 0.9rem; font-weight: 800; color: #c47090; font-style: italic; }
+
+    /* moods */
+    .mood-wrap {
+      background: linear-gradient(135deg, #fff0f8, #fdf4ff);
+      border-radius: 32px; padding: 44px 32px;
+      box-shadow: 0 6px 32px rgba(196,181,253,0.15);
+    }
+    .mood-wrap > p { text-align: center; font-weight: 700; color: #9a5870; margin-bottom: 24px; font-size: 0.97rem; }
+    .mood-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;
+    }
+    .mood-chip {
+      background: #fff; border-radius: 18px; padding: 20px 12px;
+      text-align: center; box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+      font-weight: 800; font-size: 0.88rem;
+      transition: transform 0.18s; cursor: default;
+    }
+    .mood-chip:hover { transform: scale(1.09) rotate(-2deg); }
+    .mood-chip .moji { font-size: 2.2rem; display: block; margin-bottom: 7px; }
+    .mood-chip.c1 { border-top: 3px solid var(--pink);     }
+    .mood-chip.c2 { border-top: 3px solid var(--peach);    }
+    .mood-chip.c3 { border-top: 3px solid var(--mint);     }
+    .mood-chip.c4 { border-top: 3px solid var(--sky);      }
+    .mood-chip.c5 { border-top: 3px solid var(--lavender); }
+    .mood-chip.c6 { border-top: 3px solid var(--yellow);   }
+    .mood-warn { text-align: center; margin-top: 22px; font-weight: 800; color: #b07080; font-size: 0.88rem; }
+
+    /* earrings */
+    .earring-pairs {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 8px;
+    }
+    .outfit-card {
+      background: #fff; border-radius: 22px; padding: 24px 18px;
+      text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      min-width: 130px; transition: transform 0.18s; cursor: default;
+    }
+    .outfit-card:hover { transform: translateY(-5px) rotate(2deg); }
+    .outfit-emoji  { font-size: 2.8rem; }
+    .earring-emoji { font-size: 1.9rem; margin-top: 4px; }
+    .match-label   { font-size: 0.8rem; font-weight: 800; color: #a0607a; margin-top: 6px; }
+    .earring-note  {
+      display: inline-block; margin-top: 26px;
+      background: linear-gradient(135deg, var(--pink), var(--coral));
+      color: #fff; border-radius: 16px;
+      padding: 14px 28px; font-weight: 800; font-size: 0.97rem;
+    }
+
+    /* pun */
+    .pun-card {
+      background: linear-gradient(135deg, var(--pink), var(--coral), var(--peach));
+      border-radius: 30px; padding: 50px 40px; color: #fff;
+      position: relative; overflow: hidden;
+      box-shadow: 0 14px 50px rgba(255,77,141,0.3);
+      text-align: center;
+    }
+    .pun-card::before {
+      content: '💬'; font-size: 8rem;
+      position: absolute; top: -16px; right: -16px;
+      opacity: 0.1; line-height: 1; pointer-events: none;
+    }
+    .pun-setup { font-family: 'Dancing Script', cursive; font-size: clamp(1.3rem, 3.5vw, 1.8rem); opacity: 0.88; margin-bottom: 14px; }
+    .pun-main  { font-family: 'Pacifico', cursive; font-size: clamp(1.4rem, 4.5vw, 2.3rem); line-height: 1.35; }
+    .pun-punchline {
+      margin-top: 20px; font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      font-weight: 800; background: rgba(255,255,255,0.18);
+      border-radius: 99px; padding: 10px 26px; display: inline-block;
+    }
+    .confetti-btn {
+      margin-top: 28px;
+      background: linear-gradient(135deg, var(--pink), var(--peach));
+      border: none; border-radius: 999px; color: #fff;
+      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;
+      padding: 14px 36px; cursor: pointer;
+      box-shadow: 0 7px 24px rgba(255,77,141,0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .confetti-btn:hover { transform: scale(1.07) rotate(-1deg); box-shadow: 0 12px 36px rgba(255,77,141,0.4); }
+    .confetti-btn:active { transform: scale(0.97); }
+
+    /* grateful — no box */
+    .grateful-section { text-align: center; }
+    .grateful-hearts { font-size: 2.6rem; margin-bottom: 24px; animation: heartPulse 1.6s ease-in-out infinite; }
+    @keyframes heartPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    .grateful-text {
+      font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+      line-height: 1.9; color: #5a3040; font-weight: 700;
+      max-width: 600px; margin: 0 auto;
+    }
+    .grateful-text .hl {
+      background: linear-gradient(135deg, var(--pink), var(--coral));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; font-family: 'Pacifico', cursive;
+    }
+
+    /* footer */
+    footer {
+      text-align: center; padding: 36px 20px;
+      font-weight: 800; font-size: 0.92rem; color: #b08090;
+    }
+    footer .fn { font-family: 'Pacifico', cursive; color: var(--pink); }
+
+    /* floating emojis */
+    .floaters { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .floater {
+      position: absolute; animation: floatUp linear infinite; opacity: 0;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(-8vh) rotate(340deg); opacity: 0; }
+    }
+
+    /* scroll reveal */
+    .anim-in { opacity: 0; transform: translateY(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .anim-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* section divider */
+    .divider { text-align: center; font-size: 1.4rem; opacity: 0.35; padding: 4px 0; letter-spacing: 8px; }
+  </style>
+</head>
+<body>
+
+<div class="blob-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+<div class="floaters" id="floaters"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="crown">👑</span>
+  <h1 class="hero-title">Ms. Dhamija</h1>
+  <p class="hero-sub">the one, the only, the ultimate baddie ✨</p>
+  <div class="badges">
+    <span class="badge b1">💅 Certified Baddie</span>
+    <span class="badge b2">🍽️ Foodie Queen</span>
+    <span class="badge b3">💫 Mood Goddess</span>
+    <span class="badge b4">💎 Earring Curator</span>
+  </div>
+  <div class="scroll-hint">↓</div>
+</div>
+
+<!-- FOOD -->
+<section class="anim-in">
+  <div class="sec-title">Her Holy Grails 🍴</div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-emoji">🥘</span>
+      <div class="food-name">Chole Bhature</div>
+      <p class="food-desc">Spicy, bold, non-negotiable. One plate is a warmup, two plates is Tuesday. Ms. Dhamija doesn't explain herself. 👏</p>
+    </div>
+    <div class="food-card">
+      <span class="food-emoji">🥡</span>
+      <div class="food-name">Manchurian</div>
+      <p class="food-desc">Saucy and irresistible. If you made plans and there's no Manchurian on the menu — wrong plans. 🙅‍♀️</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider anim-in">· · ·</div>
+
+<!-- CHOOJ -->
+<section class="anim-in">
+  <div class="chooj-box">
+    <div class="sec-title">& Of Course… Chooj 🐣</div>
+    <p>Not chicken. Not poultry. <strong>Chooj.</strong> Ms. Dhamija has her own dictionary and honestly it's better than Oxford's.</p>
+    <span style="font-size:4.5rem; display:block; animation: crownBounce 2s ease-in-out infinite;">🐣</span>
+    <p class="quote">"It's not weird, you just don't get it." — Ms. Dhamija, always</p>
+  </div>
+</section>
+
+<div class="divider anim-in">· · ·</div>
+
+<!-- MOODS -->
+<section class="anim-in">
+  <div class="sec-title">Today's Mood 🎭</div>
+  <div class="mood-wrap">
+    <p>could be any of the following, at any time, without warning —</p>
+    <div class="mood-grid">
+      <div class="mood-chip c1"><span class="moji">😤</span>Don't Test Me</div>
+      <div class="mood-chip c2"><span class="moji">💃</span>Lively & Loud</div>
+      <div class="mood-chip c3"><span class="moji">🌈</span>Main Character</div>
+      <div class="mood-chip c4"><span class="moji">😶</span>Leave Me Alone</div>
+      <div class="mood-chip c5"><span class="moji">✨</span>Glowing Up</div>
+      <div class="mood-chip c6"><span class="moji">🥳</span>Party Mode</div>
+    </div>
+    <p class="mood-warn">⚠️ Mood may change without prior notice. Proceed with snacks.</p>
+  </div>
+</section>
+
+<div class="divider anim-in">· · ·</div>
+
+<!-- EARRINGS -->
+<section class="anim-in" style="text-align:center;">
+  <div class="sec-title">Earrings First, Always 👂</div>
+  <p style="font-size:1rem; font-weight:700; color:#9a5870; margin-bottom:26px;">
+    Ms. Dhamija doesn't just get dressed — she <em>coordinates.</em>
+  </p>
+  <div class="earring-pairs">
+    <div class="outfit-card">
+      <div class="outfit-emoji">🌸</div>
+      <div class="earring-emoji">🌸</div>
+      <div class="match-label">Pink Day ✅</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-emoji">🖤</div>
+      <div class="earring-emoji">🖤</div>
+      <div class="match-label">Baddie Mode ✅</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-emoji">🌿</div>
+      <div class="earring-emoji">💚</div>
+      <div class="match-label">Nature Vibes ✅</div>
+    </div>
+    <div class="outfit-card">
+      <div class="outfit-emoji">☀️</div>
+      <div class="earring-emoji">🌙</div>
+      <div class="match-label">Wait… 🤔</div>
+    </div>
+  </div>
+  <div>
+    <span class="earring-note">💎 If the earrings don't match — she's not leaving. Period.</span>
+  </div>
+</section>
+
+<div class="divider anim-in">· · ·</div>
+
+<!-- PUN -->
+<section class="anim-in" style="text-align:center;">
+  <div class="sec-title">The Compliment 💌</div>
+  <div class="pun-card">
+    <p class="pun-setup">Acha Ms. Dhamija ji,</p>
+    <p class="pun-main">"Main aapko ek compliment dena chahunga…"</p>
+    <p class="pun-punchline">🌹 Aap bahut <em>complement</em> karti hain — apne earrings ke saath! 💅</p>
+  </div>
+  <button class="confetti-btn" onclick="burstConfetti()">🎉 Ek baar aur!</button>
+</section>
+
+<div class="divider anim-in">· · ·</div>
+
+<!-- GRATEFUL -->
+<section class="anim-in grateful-section">
+  <div class="sec-title">Shukriya 💖</div>
+  <div class="grateful-hearts">💗 💗 💗</div>
+  <p class="grateful-text">
+    Honestly, life is just a bit better with <span class="hl">Ms. Dhamija</span> in it.<br/><br/>
+    The moods, the Manchurian, the chooj references, the earrings that always match —
+    it all adds up. Grateful doesn't quite cover it, but it's a start. 🌟
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  made with 💕 for <span class="fn">Ms. Dhamija</span> — original, iconic, baddie.
+</footer>
+
+<script>
+  // floating emojis
+  const emojis = ['💅','✨','💗','👑','💃','🎀','🌸','💎','🐣','🥘','🌟','💕'];
+  const cont = document.getElementById('floaters');
+  for (let i = 0; i < 14; i++) {
+    const el = document.createElement('span');
+    el.className = 'floater';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (1 + Math.random() * 1.2) + 'rem';
+    el.style.animationDuration = (12 + Math.random() * 14) + 's';
+    el.style.animationDelay   = (Math.random() * 14) + 's';
+    cont.appendChild(el);
+  }
+
+  // scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.anim-in').forEach(el => obs.observe(el));
+
+  // confetti
+  function burstConfetti() {
+    const burst = ['💅','✨','💗','🎉','👑','💃','🎀','🌸','💎','🐣','🥳','💕','🎊'];
+    for (let i = 0; i < 22; i++) {
+      const el = document.createElement('span');
+      const dx = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 110);
+      const dy = 80 + Math.random() * 130;
+      el.style.cssText = `
+        position:fixed; pointer-events:none; z-index:9999;
+        font-size:${1.2 + Math.random() * 1.4}rem;
+        left:${30 + Math.random() * 40}vw;
+        top:${38 + Math.random() * 20}vh;
+        animation: cf${i} 1.3s ease-out forwards;
+      `;
+      el.textContent = burst[Math.floor(Math.random() * burst.length)];
+      const s = document.createElement('style');
+      s.textContent = `@keyframes cf${i} { 0%{opacity:1;transform:translate(0,0) scale(1) rotate(0deg)} 100%{opacity:0;transform:translate(${dx}px,-${dy}px) scale(0.3) rotate(${Math.random()*360}deg)} }`;
+      document.head.appendChild(s);
+      document.body.appendChild(el);
+      setTimeout(() => { el.remove(); s.remove(); }, 1400);
+    }
+  }
+</script>
+</body>
+</html>
